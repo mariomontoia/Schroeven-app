@@ -17,6 +17,7 @@ const T = {
     damageL: { vervormd: 'Vervormd', uitgebroken: 'Uitgebroken randen', scheur: 'Scheuren', cavitatie: 'Cavitatie', corrosie: 'Corrosie', ontbreekt: 'Stuk ontbreekt' },
     worksL: { gericht: 'Vervormingen gericht', gelast: 'Uitgebroken delen gelast', geslepen: 'Machinaal bijgewerkt / geslepen', spoed: 'Spoed gecorrigeerd', gepolijst: 'Gepolijst', gebalanceerd: 'Gebalanceerd' },
     mat: {},
+    plc: { Midden: 'Middenschroef', SB: 'Stuurboord (SB)', BB: 'Bakboord (BB)', Boeg: 'Boegschroef', 'Boeg SB': 'Boegschroef stuurboord', 'Boeg BB': 'Boegschroef bakboord' },
   },
   fr: {
     title: "Rapport de réparation d'hélice",
@@ -32,6 +33,7 @@ const T = {
     subject: "Rapport de réparation d'hélice", file: 'Rapport-reparation',
     damageL: { vervormd: 'Déformée', uitgebroken: 'Bords ébréchés', scheur: 'Fissures', cavitatie: 'Cavitation', corrosie: 'Corrosion', ontbreekt: 'Morceau manquant' },
     worksL: { gericht: 'Déformations redressées', gelast: 'Parties ébréchées soudées', geslepen: 'Usinage / meulage', spoed: 'Pas corrigé', gepolijst: 'Polie', gebalanceerd: 'Équilibrée' },
+    plc: { Midden: 'Hélice centrale', SB: 'Tribord', BB: 'Bâbord', Boeg: "Propulseur d'étrave", 'Boeg SB': "Propulseur d'étrave tribord", 'Boeg BB': "Propulseur d'étrave bâbord" },
     mat: { Brons: 'Bronze', Mangaanbrons: 'Bronze au manganèse', 'NiAl-brons': 'Bronze nickel-aluminium', Staal: 'Acier' },
   },
 };
@@ -108,7 +110,7 @@ export function buildReport(job, photos, settings) {
     [t.ship, job.schip], [t.client, job.klant], [t.propNr, job.schroefNr], [t.date, dateStr],
     [t.diameter, job.diameter ? `${job.diameter} mm` : ''], [t.blades, job.bladen],
     [t.rotation, t[job.draairichting] ?? job.draairichting], [t.material, mat],
-    [t.model, job.model], [t.place, job.plaats],
+    [t.model, job.model], [t.place, t.plc[job.plaats] ?? job.plaats],
     [t.nominal, job.spoedNominaal ? `${job.spoedNominaal} mm` : ''],
   ].filter(([, v]) => v !== '' && v !== undefined && v !== null);
   const half = Math.ceil(info.length / 2);

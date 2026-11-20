@@ -27,6 +27,14 @@ export const WORKS = [
   ['gepolijst', 'Gepolijst'],
   ['gebalanceerd', 'Gebalanceerd'],
 ];
+export const PLACES = [
+  ['Midden', 'Midden (middenschroef)'],
+  ['SB', 'SB (stuurboord)'],
+  ['BB', 'BB (bakboord)'],
+  ['Boeg', 'Boeg (boegschroef)'],
+  ['Boeg SB', 'Boeg SB'],
+  ['Boeg BB', 'Boeg BB'],
+];
 const MATERIALS = ['Brons', 'Mangaanbrons', 'NiAl-brons', 'Inox', 'Staal', 'Aluminium'];
 const DEFAULT_SETTINGS = {
   bedrijf: 'Moordgat Scheepsherstellingen',
@@ -236,7 +244,8 @@ async function tabOntvangst(el) {
         ${field('Model', 'model', j.model)}
         <div><label for="f-mat">Materiaal</label>
           <input id="f-mat" data-path="materiaal" list="materialen" value="${esc(j.materiaal)}"></div>
-        ${field('Plaats', 'plaats', j.plaats)}
+        <div><label for="f-plaats">Plaats</label>
+          <select id="f-plaats" data-path="plaats"><option value=""></option>${PLACES.map(([v, l]) => `<option value="${v}" ${j.plaats === v ? 'selected' : ''}>${l}</option>`).join('')}${j.plaats && !PLACES.some(([v]) => v === j.plaats) ? `<option selected>${esc(j.plaats)}</option>` : ''}</select></div>
         ${field('Spoed (nominaal, mm)', 'spoedNominaal', j.spoedNominaal, 'inputmode="decimal"')}
         <div><label for="f-ms">Meetstand</label>
           <select id="f-ms" data-path="meetstand"><option value=""></option>${stands.map((x) => `<option ${j.meetstand === x ? 'selected' : ''}>${esc(x)}</option>`).join('')}</select></div>

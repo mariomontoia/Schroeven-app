@@ -27,9 +27,20 @@ Linhas 1..N = pás; em cada pá, 3 leituras de altura por raio (2 nos raios 50% 
 Pá 1, RAD1 (R 383): 370 − 247 = 123; ângulos 23 + 22 = 45 → 123 × 360 / 45 = 984.
 Pá 1, RAD2 (R 298): 435 − 227 = 208; ângulos 38 + 38 = 76 → 985.
 
+## Respostas do utilizador (2026-11-20)
+- Medição: risca-se cada circunferência, o meio da linha é o ponto zero; a agulha sobe X graus
+  (ângulo de cima) e desce X graus (ângulo de baixo); os números são alturas (cima / zero / baixo).
+- 98% normalmente é sempre medido (nessa folha não foi preciso).
+- O Excel SCHROEFBLADEN.xlsx já tem o cálculo do passo.
+- Meetstand = posto de medição A, B ou C (cada um trabalha no seu; o utilizador usa o C).
+- Interface só em neerlandês; relatório também em francês (clientes franceses).
+- 3 pessoas usam.
+
+## Protótipo v1 (2026-11-20)
+PWA na raiz do repositório: Ontvangst → Meting (vóór/na) → Herstelling → Rapport (PDF NL/FR, partilhar/e-mail).
+
 ## Em aberto
-- Ficheiro onde o passo é calculado (o utilizador ainda vai enviar).
-- Segunda subcoluna em cada RAD: o que é (medição depois da correção?).
-- 98%: sem ângulos na folha; entra no cálculo do passo?
-- Significado de Meetstand, Plaats, Model.
-- Língua da interface (NL/PT); onde guardar os dados.
+- Segunda subcoluna em cada RAD: o protótipo assume "vóór / na herstelling" — confirmar.
+- O que se escreve em Plaats e Model.
+- Aparelhos (tablet/telemóvel/PC) e onde alojar a app (ex.: GitHub Pages) e guardar os dados.
+- Desenho das pás para marcar zonas a cores (fase 2).
